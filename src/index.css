@@ -1,0 +1,105 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import './styles/effects.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply min-h-screen bg-bg-base font-sans text-text-primary antialiased;
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at top left, rgba(75, 139, 190, 0.18), transparent 28%),
+      radial-gradient(circle at 85% 12%, rgba(255, 212, 59, 0.12), transparent 22%),
+      radial-gradient(circle at 50% 100%, rgba(127, 179, 213, 0.12), transparent 28%),
+      linear-gradient(180deg, #060d18 0%, #07111f 38%, #0a1627 100%);
+  }
+
+  :root[data-theme='light'] body {
+    color: #1f2d3d;
+    background-image:
+      radial-gradient(circle at top left, rgba(119, 173, 214, 0.2), transparent 26%),
+      radial-gradient(circle at 82% 12%, rgba(236, 177, 255, 0.18), transparent 24%),
+      radial-gradient(circle at 50% 100%, rgba(128, 212, 181, 0.14), transparent 26%),
+      linear-gradient(180deg, #f7f3fb 0%, #f3f6ff 48%, #eef4fb 100%);
+  }
+
+  :root[data-theme='light'] #root {
+    color: #1f2d3d;
+  }
+
+  ::selection {
+    @apply bg-neon-cyan text-bg-base;
+  }
+
+  a {
+    @apply text-inherit;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-base;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-neon-cyan/60;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-magenta/70;
+  }
+}

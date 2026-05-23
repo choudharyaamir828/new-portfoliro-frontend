@@ -1,0 +1,287 @@
+@layer utilities {
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.2);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 20px rgba(255, 43, 214, 0.4), 0 0 40px rgba(255, 43, 214, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .glass {
+    @apply border border-border-glow bg-bg-glass shadow-panel backdrop-blur-xl;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 24px 80px rgba(2, 6, 24, 0.5);
+  }
+
+  .grid-bg {
+    @apply bg-grid-pattern;
+    background-size: 20px 20px;
+  }
+
+  .grid-fade {
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 18%, #000 82%, transparent 100%);
+  }
+
+  .cosmic-bg {
+    background-image:
+      radial-gradient(circle at 18% 18%, rgba(75, 139, 190, 0.22), transparent 24%),
+      radial-gradient(circle at 82% 14%, rgba(255, 212, 59, 0.18), transparent 22%),
+      radial-gradient(circle at 50% 78%, rgba(127, 179, 213, 0.18), transparent 28%);
+  }
+
+  .mesh-bg {
+    background-image:
+      linear-gradient(rgba(75, 139, 190, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 212, 59, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .hero-beam {
+    position: absolute;
+    inset: auto;
+    width: 34rem;
+    height: 34rem;
+    border-radius: 9999px;
+    filter: blur(70px);
+    background:
+      radial-gradient(circle, rgba(255, 212, 59, 0.16) 0%, rgba(75, 139, 190, 0.18) 38%, transparent 72%);
+    animation: beam 10s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .dashboard-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .orbit-dot {
+    position: absolute;
+    height: 0.7rem;
+    width: 0.7rem;
+    border-radius: 9999px;
+    background: #ffd43b;
+    box-shadow: 0 0 20px rgba(255, 212, 59, 0.5);
+    animation: orbit 12s linear infinite;
+  }
+
+  .signal-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .signal-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+    animation: shimmerx 3.6s ease-in-out infinite;
+  }
+
+  .skill-halo {
+    position: absolute;
+    inset: auto auto 12% -4%;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(75, 139, 190, 0.18), transparent 70%);
+    filter: blur(18px);
+    pointer-events: none;
+  }
+
+  .skill-ring {
+    position: relative;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 10px 30px rgba(2, 8, 24, 0.35);
+  }
+
+  .skill-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0.45rem;
+    border-radius: 9999px;
+    background: rgba(8, 17, 29, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .skill-grid-bg {
+    background-image:
+      radial-gradient(circle at top right, rgba(255, 212, 59, 0.12), transparent 28%),
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: auto, 20px 20px, 20px 20px;
+  }
+
+  .skill-panel-bg {
+    background:
+      radial-gradient(circle at 12% 18%, rgba(75, 139, 190, 0.2), transparent 26%),
+      radial-gradient(circle at 88% 16%, rgba(255, 212, 59, 0.16), transparent 22%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+      linear-gradient(180deg, rgba(8, 17, 29, 0.96), rgba(10, 18, 32, 0.88));
+  }
+
+  .skill-vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 48%, rgba(2, 8, 24, 0.22) 100%);
+    pointer-events: none;
+  }
+
+  .skill-segments {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .skill-segment {
+    height: 0.45rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  .skill-segment[data-active='true'] {
+    background: linear-gradient(90deg, #4b8bbe, #ffd43b);
+    box-shadow:
+      0 0 18px rgba(75, 139, 190, 0.22),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+
+  .skill-tile {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 38%);
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  .skill-soft-glow::before {
+    inset: -2px;
+    filter: blur(18px);
+    opacity: 0;
+    background:
+      radial-gradient(circle at 82% 14%, rgba(127, 179, 213, 0.18), transparent 24%),
+      radial-gradient(circle at 14% 18%, rgba(75, 139, 190, 0.24), transparent 28%),
+      linear-gradient(120deg, rgba(75, 139, 190, 0.22), rgba(96, 210, 161, 0.2), rgba(127, 179, 213, 0.16));
+  }
+
+  .skill-soft-glow:hover::before,
+  .skill-soft-glow[data-active='true']::before {
+    opacity: 0.2;
+  }
+
+  .skill-soft-glow::after {
+    opacity: 0.32;
+  }
+
+  .panel-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel-sheen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 22%, rgba(255, 255, 255, 0.08) 50%, transparent 78%);
+    transform: translateX(-120%);
+    transition: transform 700ms ease;
+    pointer-events: none;
+  }
+
+  .panel-sheen:hover::after {
+    transform: translateX(120%);
+  }
+
+  .spotlight-ring {
+    position: absolute;
+    border-radius: 9999px;
+    border: 1px solid rgba(75, 139, 190, 0.18);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 0 50px rgba(75, 139, 190, 0.08);
+  }
+
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.04) 0.7px, transparent 0.7px);
+    background-size: 18px 18px;
+    mix-blend-mode: soft-light;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .neon-border {
+    position: relative;
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(120deg, #4b8bbe, #ffd43b, #7fb3d5, #4b8bbe);
+    background-size: 300% 300%;
+    opacity: 0;
+    transition: opacity 220ms ease;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .neon-border:hover::before,
+  .neon-border[data-active='true']::before {
+    opacity: 1;
+  }
+
+  .scanline-hover {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanline-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateY(-120%);
+    background: linear-gradient(180deg, transparent, rgba(75, 139, 190, 0.2), transparent);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .scanline-hover:hover::before {
+    opacity: 1;
+    animation: scanline 3s ease-in-out infinite;
+  }
+
+  .cyber-prose {
+    @apply text-text-secondary;
+  }
+
+  .cyber-prose p {
+    @apply mb-5 leading-8;
+  }
+
+  .cyber-prose a {
+    @apply text-neon-cyan underline decoration-neon-cyan/40 underline-offset-4 hover:text-neon-magenta;
+  }
+}
