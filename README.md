@@ -73,3 +73,16 @@ npm run preview
 ```
 
 The production build outputs to `dist/`. Deploy `dist/` to any static host and configure `VITE_API_BASE_URL` for the target backend.
+
+## Vercel Deployment
+
+This frontend includes `vercel.json` for SPA route rewrites.
+
+Set these environment variables in Vercel:
+
+```bash
+VITE_API_BASE_URL=https://your-backend-domain.onrender.com/api/v1
+VITE_PORTFOLIO_USERNAME=aamir
+```
+
+See [`DEPLOYMENT.md`](../DEPLOYMENT.md) for the paired backend setup.
